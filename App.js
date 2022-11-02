@@ -10,7 +10,7 @@ export default function App() {
     <NavigationContainer>
 
       {/* Phone StatusBar */}
-      <StatusBar backgroundColor='red'/>
+      <StatusBar backgroundColor='#004d28' style='light'/>
 
       {/* Screen Content */}
       <SafeAreaView className='flex-1'>
