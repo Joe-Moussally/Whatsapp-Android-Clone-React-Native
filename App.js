@@ -3,6 +3,7 @@ import UserNavigation from './navigations/UserNavigation';
 
 import { StatusBar } from 'expo-status-bar'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
+import UserNavigationHeader from './components/Header/UserNavigationHeader';
 
 
 export default function App() {
@@ -14,7 +15,8 @@ export default function App() {
 
       {/* Screen Content */}
       <SafeAreaView className='flex-1'>
-
+        
+        <UserNavigationHeader />
         {/* Main App Navigation */}
         <UserNavigation />
 
