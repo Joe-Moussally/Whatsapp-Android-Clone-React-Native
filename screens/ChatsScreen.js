@@ -1,15 +1,29 @@
-import { View, Text, TouchableNativeFeedback } from 'react-native'
+import { Modal, Text, View } from 'react-native'
 import React from 'react'
+import ChatCard from '../components/ChatsComponents/ChatCard'
 
 const ChatsScreen = () => {
   return (
     <View>
 
-      <TouchableNativeFeedback>
-        <View className='bg-blue-300 w-[90%] h-[100px]'>
-          <Text className='text-red-500'>BUTTON</Text>
-        </View>
-      </TouchableNativeFeedback>
+        <Modal
+            visible={true}
+            animationType='slide'
+        >
+            <Text>THIS IS MODAL</Text>
+        </Modal>
+
+      <ChatCard
+        contactName='Joe Moussally'
+        // contactImgUrl='../../assets/default_contact_picture.webp'
+        lastMessage='Hello'
+      />
+
+      <ChatCard
+        contactName='Elon Musk'
+        // contactImgUrl='../../assets/default_contact_picture.webp'
+        lastMessage='Howdy partner!'
+      />
     </View>
   )
 }
