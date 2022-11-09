@@ -19,7 +19,7 @@ const ChatsStack = () => {
     <Stack.Navigator
       initialRouteName='ChatsScreen'
       screenOptions={{
-        // headerShown:false
+        headerShown:false
       }}
     >
       <Stack.Screen name='ChatsScreen' component={ChatsScreen}/>

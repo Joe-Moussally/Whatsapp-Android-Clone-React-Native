@@ -1,9 +1,9 @@
 // react native imports
-import { View, Text, TouchableOpacity, Image, TouchableNativeFeedback, Modal } from 'react-native'
+import { View, Text, TouchableOpacity, Image, TouchableNativeFeedback, Modal, Dimensions } from 'react-native'
 import React from 'react'
-import { useNavigation } from '@react-navigation/native'
 
 // navigation imports
+import { useNavigation } from '@react-navigation/native'
 
 const ChatCard = ({
     contactImgUrl=null,
@@ -16,11 +16,14 @@ const ChatCard = ({
 
     const navigation = useNavigation()
 
+    //phone screen width
+    const screenWidth = Dimensions.get('window').width
+
   return (
     <TouchableNativeFeedback>
 
         {/* Card container */}
-        <View className='h-[70px] flex-row items-center mx-1 py-1 px-3 w-[100%]'>
+        <View className={`h-[70px] flex-row items-center mx-1 py-1 pl-3 w-[${screenWidth}px]`}>
 
             {/* Contact image */}
             <TouchableOpacity
@@ -37,12 +40,15 @@ const ChatCard = ({
             </TouchableOpacity>
             
             {/* Contact name + Last message Container */}
-            <View className='h-[100%] pl-5'>
+            <View className='h-[100%] pl-5 flex-1 mt-2'>
 
                 {/* Name + Last message time container */}
-                <View>
-                    <Text className='text-lg font-semibold mt-[1px]'>{contactName}</Text>
+                <View className='flex-row items-center justify-between my-[2px] w-[100%] mr-5'>
+                    <Text className='text-lg font-semibold'>{contactName}</Text>
+                    {/* Last Message Time */}
+                    <Text className='text-gray-500 text-[13px] mr-3'>{lastMessageTime}</Text>
                 </View>
+                
                 <Text className='text-gray-500 pl-[1px]'>{lastMessageText}</Text>
             </View>
 
