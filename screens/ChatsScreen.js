@@ -1,17 +1,11 @@
-import { Modal, Text, View } from 'react-native'
+import { Image, View } from 'react-native'
 import React from 'react'
+
 import ChatCard from '../components/ChatsComponents/ChatCard'
 
 const ChatsScreen = () => {
   return (
     <View>
-
-        <Modal
-            visible={true}
-            animationType='slide'
-        >
-            <Text>THIS IS MODAL</Text>
-        </Modal>
 
       <ChatCard
         contactName='Joe Moussally'

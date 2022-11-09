@@ -2,10 +2,10 @@ import React from 'react'
 
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-// Tab Screens
-import ChatsScreen from '../screens/ChatsScreen'
+// Tab Screens/Stacks
 import StatusScreen from '../screens/StatusScreen'
 import CallsScreen from '../screens/CallsScreen'
+import ChatsStack from './UserNavigations/ChatsStack';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -15,7 +15,7 @@ const UserNavigation = () => {
   return (
 
       <Tab.Navigator
-        initialRouteName='Chats'
+        initialRouteName='ChatsStack'
         screenOptions={{
           tabBarLabelStyle:{fontWeight:'bold'},
           tabBarStyle:{backgroundColor:'#156b4d'},
@@ -26,8 +26,9 @@ const UserNavigation = () => {
 
         {/* Chats Screen */}
         <Tab.Screen
-          name="Chats"
-          component={ChatsScreen}
+          name="ChatsStack"
+          options={{title:'CHATS'}}
+          component={ChatsStack}
         />
 
         {/* Status Screen */}

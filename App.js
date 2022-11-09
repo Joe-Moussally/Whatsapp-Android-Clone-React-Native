@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import UserNavigation from './navigations/UserNavigation';
+import 'react-native-gesture-handler';
 
 import { StatusBar } from 'expo-status-bar'; 
 import { SafeAreaView } from 'react-native-safe-area-context';

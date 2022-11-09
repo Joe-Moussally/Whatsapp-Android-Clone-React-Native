@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, Image, TouchableNativeFeedback } from 'react-native'
+import { View, Text, TouchableOpacity, Image, TouchableNativeFeedback, Modal } from 'react-native'
 import React from 'react'
 
 const ChatCard = ({
@@ -30,7 +30,7 @@ const ChatCard = ({
             
             {/* Contact name + Last message Container */}
             <View className='h-[100%] justify-around pl-5'>
-                <Text className='text-xl font-semibold'>{contactName}</Text>
+                <Text className='text-lg font-semibold'>{contactName}</Text>
                 <Text className='text-gray-500 pl-[1px]'>{lastMessage}</Text>
             </View>
 
