@@ -6,7 +6,8 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack';
 
 //screen imports
-import ChatsScreen from '../../screens/ChatsScreen';
+import ChatsScreen from '../../screens/ChatsScreens/ChatsScreen';
+import ProfilePictureModal from '../../screens/ChatsScreens/ProfilePictureModal';
 
 
 
@@ -16,12 +17,13 @@ const ChatsStack = () => {
     
   return (
     <Stack.Navigator
-      initialRouteName='Chats'
+      initialRouteName='ChatsScreen'
       screenOptions={{
-        headerShown:false
+        // headerShown:false
       }}
     >
       <Stack.Screen name='ChatsScreen' component={ChatsScreen}/>
+      <Stack.Screen name='ProfilePictureModal' component={ProfilePictureModal}/>
     </Stack.Navigator>
   )
 }
