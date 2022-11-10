@@ -1,29 +1,36 @@
+// navigation imports
 import { NavigationContainer } from '@react-navigation/native';
 import UserNavigation from './navigations/UserNavigation';
 import 'react-native-gesture-handler';
 
+// react native packages imports
 import { StatusBar } from 'expo-status-bar'; 
 import { SafeAreaView } from 'react-native-safe-area-context';
+
+// component imports
 import UserNavigationHeader from './components/Header/UserNavigationHeader';
+
+// redux imports
+import { store } from './redux/store';
+import { Provider } from 'react-redux';
 
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        {/* Phone StatusBar */}
+        <StatusBar backgroundColor='#156b4d' style='light'/>
 
-      {/* Phone StatusBar */}
-      <StatusBar backgroundColor='#004d28' style='light'/>
+        {/* Screen Content */}
+        <SafeAreaView className='flex-1'>
+          
+          <UserNavigationHeader />
+          {/* Main App Navigation */}
+          <UserNavigation />
 
-      {/* Screen Content */}
-      <SafeAreaView className='flex-1'>
-        
-        <UserNavigationHeader />
-        {/* Main App Navigation */}
-        <UserNavigation />
-
-
-      </SafeAreaView>
-
-    </NavigationContainer>
+        </SafeAreaView>
+      </NavigationContainer>
+    </Provider>
   );
 }

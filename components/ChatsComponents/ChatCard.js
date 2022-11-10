@@ -23,7 +23,7 @@ const ChatCard = ({
     <TouchableNativeFeedback>
 
         {/* Card container */}
-        <View className={`h-[70px] flex-row items-center mx-1 py-1 pl-3 w-[${screenWidth}px]`}>
+        <View className={`h-[70px] flex-row items-center mx-1 py-1 pl-2 w-[${screenWidth}px]`}>
 
             {/* Contact image */}
             <TouchableOpacity

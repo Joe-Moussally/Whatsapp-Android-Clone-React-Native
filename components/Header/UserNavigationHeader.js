@@ -7,7 +7,7 @@ import React from 'react';
 
 const UserNavigationHeader = () => {
   return (
-    <View className='flex-row justify-between bg-[#156b4d] py-3 px-1 items-center'>
+    <View className='flex-row justify-between bg-[#156b4d] py-1 px-1 items-center'>
 
         {/* Header Title */}
         <Text className='text-white text-[21px] font-bold px-2'>WhatsApp</Text>
