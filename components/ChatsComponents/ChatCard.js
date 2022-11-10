@@ -11,7 +11,7 @@ const ChatCard = ({
     lastMessageText=null,
     lastMessageTime=null,
     isRead=true,
-    messagesNumber=0
+    messagesNumber=''
 }) => {
 
     const navigation = useNavigation()
@@ -23,7 +23,18 @@ const ChatCard = ({
     <TouchableNativeFeedback>
 
         {/* Card container */}
-        <View className={`h-[70px] flex-row items-center mx-1 py-1 pl-2 w-[${screenWidth}px]`}>
+        <View className={`h-[73px] flex-row items-center mx-1 py-1 pl-2 w-[${screenWidth}px]`}>
+
+            {
+                // if message is not read -> display number of non read messages
+                !isRead?
+                <View className='absolute right-7 top-9 bg-green-400 w-[25px] h-[25px] rounded-full justify-center items-center'>
+                    <Text className='text-white font-bold'>
+                        {messagesNumber}
+                    </Text>
+                </View>
+                :null
+            }
 
             {/* Contact image */}
             <TouchableOpacity

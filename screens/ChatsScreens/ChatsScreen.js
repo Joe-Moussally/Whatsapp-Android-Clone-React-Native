@@ -16,6 +16,8 @@ const ChatsScreen = () => {
         // contactImgUrl='../../assets/default_contact_picture.webp'
         lastMessageText='Hello'
         lastMessageTime='6:38 PM'
+        isRead={false}
+        messagesNumber='2'
       />
 
       <ChatCard
