@@ -17,12 +17,12 @@ const UserNavigationHeader = () => {
 
           {/* Search icon */}
           <HeaderButton
-            icon={<Ionicons name="search" size={24} color="white" />}
+            icon={<Ionicons name="search" size={22} color="white" />}
           />
 
           {/* Header Menu icon */}          
           <HeaderButton
-            icon={<MaterialCommunityIcons name="dots-vertical" size={24} color="white"/>}
+            icon={<MaterialCommunityIcons name="dots-vertical" size={22} color="white"/>}
           />
           
           
