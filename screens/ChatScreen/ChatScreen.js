@@ -3,7 +3,7 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 
 //package imports
-import { Bubble, GiftedChat, Send } from 'react-native-gifted-chat'
+import { Bubble, Day, GiftedChat, Send } from 'react-native-gifted-chat'
 
 // component imports
 import ChatHeader from '../../components/ChatComponents/ChatHeader'
@@ -71,6 +71,22 @@ const ChatScreen = ({route}) => {
           }}
           //remove avatar container
           renderAvatar={() => null}
+
+          renderDay={(props) => (
+            <Day {...props}
+              containerStyle={{
+                backgroundColor:'#bdbdbd',
+                alignSelf:'center',
+                paddingVertical:2,
+                paddingHorizontal:5,
+                borderRadius:5,
+                elevation:1
+              }}
+              textStyle={{
+                color:'white'
+              }}
+            />
+          )}
 
           //message bubble container styling
           renderBubble={(props) => (
