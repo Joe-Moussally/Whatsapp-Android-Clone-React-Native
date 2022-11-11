@@ -58,7 +58,7 @@ const ChatCard = ({
 
                 {/* Name + Last message time container */}
                 <View className='flex-row items-center justify-between my-[2px] w-[100%] mr-5'>
-                    <Text className='text-lg font-semibold'>{contactName}</Text>
+                    <Text className={`text-lg font-semibold ${!lastMessageText?'mt-2':''}`}>{contactName}</Text>
                     {/* Last Message Time */}
                     <Text className='text-gray-500 text-[13px] mr-3'>{lastMessageTime}</Text>
                 </View>
