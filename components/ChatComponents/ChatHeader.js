@@ -13,11 +13,12 @@ const ChatHeader = () => {
     <View className='bg-[#156b4d] h-[50px] px-2'>
       
         {/* Back button + chatee image container */}
+        <View className='rounded-[40px] w-[65px]'>
         <TouchableNativeFeedback
             onPress={() => {navigation.pop()}}
-            background={TouchableNativeFeedback.Ripple('#fff',true)}
+            background={TouchableNativeFeedback.Ripple('lightgray',true)}
         >
-        <View className='flex-row items-center justify-between border-2 w-[65px] rounded-full p-1'>
+        <View className='flex-row items-center justify-between w-[65px] rounded-full p-1'>
             <Ionicons name="arrow-back" size={22} color="white" />
             <Image
                 className='h-[30px] w-[30px] rounded-full'
@@ -25,7 +26,7 @@ const ChatHeader = () => {
             />
         </View> 
         </TouchableNativeFeedback>
-
+        </View>
     </View>
   )
 }
