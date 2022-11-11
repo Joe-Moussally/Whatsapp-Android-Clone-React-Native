@@ -1,4 +1,4 @@
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableNativeFeedback } from 'react-native'
 import React from 'react'
 
 const Button = ({
@@ -6,14 +6,15 @@ const Button = ({
   onPress = () => {},
 }) => {
   return (
-    <TouchableOpacity
+    <TouchableNativeFeedback
       onPress={onPress}
+      background={TouchableNativeFeedback.Ripple('#fff',true)}
     >
         <View className='rounded-full h-[27] w-[27] items-center justify-center m-2'>
             {/* Button icon */}
             {icon?icon:null}
         </View>
-    </TouchableOpacity>
+    </TouchableNativeFeedback>
   )
 }
 

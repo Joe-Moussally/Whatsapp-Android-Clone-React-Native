@@ -4,12 +4,10 @@ import React from 'react'
 // navigation imports
 import { createStackNavigator } from '@react-navigation/stack';
 
-//screen imports
-import ChatsScreen from '../../screens/ChatsScreens/ChatsScreen';
+//screen/components imports
 import ChatScreen from '../../screens/ChatScreen/ChatScreen'
 import UserNavigation from '../UserNavigation';
-import { Text } from 'react-native';
-import HeaderRight from '../../components/Header/HeaderRight';
+import UserNavigationHeader from '../../components/Header/UserNavigationHeader';
 
 
 const ChatsStack = () => {
@@ -21,17 +19,16 @@ const ChatsStack = () => {
       initialRouteName='TabsScreen'
       screenOptions={{
         headerShown:false,
-        headerTintColor:'white',
-        headerTitle:'WhatsApp',
-        headerRight:() => <HeaderRight />,
-        headerStyle:{backgroundColor:'#156b4d',shadowColor:'#156b4d'}
+        header:() => <UserNavigationHeader />,
       }}
     >
+      {/* Main app screen (Tabs Screen) */}
       <Stack.Screen name='TabsScreen' options={{
         headerShown:true,
       }} component={UserNavigation}/>
+
+      {/* Chat Screen */}
       <Stack.Screen name='ChatScreen' component={ChatScreen}/>
-      <Stack.Screen name='ChatsScreen' component={ChatsScreen}/>
     </Stack.Navigator>
   )
 }

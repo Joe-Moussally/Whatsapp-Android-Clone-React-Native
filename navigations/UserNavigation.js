@@ -5,7 +5,6 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 // Tab Screens/Stacks
 import StatusScreen from '../screens/StatusScreen'
 import CallsScreen from '../screens/CallsScreen'
-import ChatsStack from './UserNavigations/ChatsStack';
 import ChatsScreen from '../screens/ChatsScreens/ChatsScreen';
 
 
