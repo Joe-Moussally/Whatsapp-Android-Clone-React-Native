@@ -6,6 +6,7 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 import StatusScreen from '../screens/StatusScreen'
 import CallsScreen from '../screens/CallsScreen'
 import ChatsStack from './UserNavigations/ChatsStack';
+import ChatsScreen from '../screens/ChatsScreens/ChatsScreen';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -28,7 +29,7 @@ const UserNavigation = () => {
         <Tab.Screen
           name="ChatsStack"
           options={{title:'CHATS'}}
-          component={ChatsStack}
+          component={ChatsScreen}
         />
 
         {/* Status Screen */}

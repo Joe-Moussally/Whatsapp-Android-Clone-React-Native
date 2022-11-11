@@ -20,7 +20,9 @@ const ChatCard = ({
     const screenWidth = Dimensions.get('window').width
 
   return (
-    <TouchableNativeFeedback>
+    <TouchableNativeFeedback
+        onPress={() => navigation.push('ChatScreen')}
+    >
 
         {/* Card container */}
         <View className={`h-[73px] flex-row items-center mx-1 py-1 pl-2 w-[${screenWidth}px]`}>

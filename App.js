@@ -13,6 +13,7 @@ import UserNavigationHeader from './components/Header/UserNavigationHeader';
 // redux imports
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
+import ChatsStack from './navigations/UserNavigations/ChatsStack';
 
 
 export default function App() {
@@ -25,9 +26,8 @@ export default function App() {
         {/* Screen Content */}
         <SafeAreaView className='flex-1'>
           
-          <UserNavigationHeader />
           {/* Main App Navigation */}
-          <UserNavigation />
+          <ChatsStack />
 
         </SafeAreaView>
       </NavigationContainer>
