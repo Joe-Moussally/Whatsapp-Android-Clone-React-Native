@@ -1,9 +1,9 @@
 // react/react native import
-import { View, Text, ImageBackground } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 
 //package imports
-import { GiftedChat } from 'react-native-gifted-chat'
+import { Bubble, GiftedChat, Send } from 'react-native-gifted-chat'
 
 // component imports
 import ChatHeader from '../../components/ChatComponents/ChatHeader'
@@ -20,31 +20,26 @@ const ChatScreen = ({route}) => {
   // parameters passed from ChatsScreen
   const routeParams = route.params
 
+  //track the text input
   const [text,setText] = useState('')
 
   //get chat messages from store
   const [messages, setMessages] = useState([]);
   // const messages = useSelector((state) => getChatById(state,{chatId:route.params.chatId}))
 
+  const userId=1
+  const contactId=2
 
   //function that is called when the user presses 'send' button
   const onSend = useCallback((messages=[]) => {
-    setMessages(previousMessages => [...previousMessages,      {
-      _id: 1,
-      text: text,
-      createdAt: new Date(),
-      user: {
-        _id: 2,
-      },
-    }])
-    setText('')
+    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
   },[text])
 
   useEffect(() => {
     setMessages([
       {
-        _id: 1,
-        text: 'Hello developer',
+        _id: Math.random(),
+        text: 'Hello Joe',
         createdAt: new Date(),
         user: {
           _id: 2,
@@ -68,15 +63,7 @@ const ChatScreen = ({route}) => {
       />
 
       {/* Messages container */}
-      <View className='flex-1'>
-        <Text>{text}</Text>
-        {
-          messages.map(message => (
-            <Text>{message.text}</Text>
-          ))
-        }
-      </View>
-        {/* <GiftedChat
+        <GiftedChat
           messages={messages}
           onSend={messages => onSend(messages)}
           user={{
@@ -84,25 +71,45 @@ const ChatScreen = ({route}) => {
           }}
           //remove avatar container
           renderAvatar={() => null}
-          renderInputToolbar={(prop) => {
-            console.log(prop)
-            return <MessageInput
-                      onTextChanged={prop.onTextChanged}
-                      onSend={prop.onSend}
-                  />
-          }}
-          text={text}
-          onInputTextChanged={text => setText(text)}
-        /> */}
 
+          //message bubble container styling
+          renderBubble={(props) => (
+            <Bubble {...props}
+              wrapperStyle={{
+                right:{
+                    backgroundColor:'#308a5a',
+                    elevation:2,
+                },
+                left:{
+                  backgroundColor:'#f7f7f7',
+                  elevation:2
+                },
+              }}
+          />
+          )}
+
+          renderSend={(props) => (
+            <Send {...props}
+              textStyle={{color:'#308a5a'}}
+            />
+          )}
+        />
+{/* 
       <MessageInput
         setText={setText}
         textValue={text}
         onSend={onSend}
-      />
+      /> */}
 
     </View>
   )
 }
 
 export default ChatScreen
+
+const styles = StyleSheet.create({
+  textInput:{
+    borderWidth:2,
+    borderColor:'red'
+  }
+})

@@ -5,7 +5,7 @@ import React from 'react'
 import { Ionicons } from '@expo/vector-icons';
 
 const SendButton = ({
-  onSend
+  onSend=() => {}
 }) => {
   return (
     <TouchableOpacity onPress={onSend}>

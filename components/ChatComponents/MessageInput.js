@@ -11,9 +11,9 @@ import EmojiModal from 'react-native-emoji-modal';
 import SendButton from '../SendButton';
 
 const MessageInput = ({
-  setText,
-  onSend,
-  textValue
+  setText=() => {},
+  onSend=() => {},
+  textValue=''
 }) => {
   return (
     <View className='flex-row items-center px-[2px] -mt-2'>
