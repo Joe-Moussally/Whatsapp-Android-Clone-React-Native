@@ -2,17 +2,32 @@
 import { View, Text, ImageBackground } from 'react-native'
 import React, { useEffect } from 'react'
 
-// components
+//package imports
+import { GifterChat } from 'react-native-gifted-chat'
+
+// component imports
 import ChatHeader from '../../components/ChatComponents/ChatHeader'
 import MessageInput from '../../components/ChatComponents/MessageInput'
 
-const ChatScreen = () => {
+// redux imports
+import { useSelector } from 'react-redux'
+import { getAllMessages, getChatById } from '../../redux/slices/messagesSlice'
+
+
+const ChatScreen = ({route}) => {
+
+  const routeParams = route.params
+
+  const messages = useSelector((state) => getChatById(state,{chatId:route.params.chatId}))
+  console.log(messages)
 
   return (
     <View className='flex-1'>
 
       {/* Chat Header */}
-      <ChatHeader />
+      <ChatHeader
+        contactName={routeParams.contactName}
+      />
 
       {/* Chat Screen Background */}
       <ImageBackground
@@ -20,6 +35,7 @@ const ChatScreen = () => {
         source={require('../../assets/default_background.jpg')}
       />
 
+      {/* Messages container */}
       <View className='flex-1'>
       </View>
 

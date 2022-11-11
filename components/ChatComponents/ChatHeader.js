@@ -8,7 +8,10 @@ import { useNavigation } from '@react-navigation/native';
 // component imports
 import IconButton from '../IconButton'
 
-const ChatHeader = () => {
+const ChatHeader = ({
+    contactName,
+    contactImageUrl='../../assets/default_contact_picture.webp'
+}) => {
 
     const navigation = useNavigation()
 
@@ -34,7 +37,7 @@ const ChatHeader = () => {
             </View>
 
             {/* Contact Name */}
-            <Text className='text-white text-[17px] font-semibold mb-[2px] ml-1'>Elon Musk</Text>
+            <Text className='text-white text-[17px] font-semibold mb-[2px] ml-1'>{contactName}</Text>
         </View>
 
         {/* Header Buttons Container */}

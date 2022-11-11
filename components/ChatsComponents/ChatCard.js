@@ -11,7 +11,8 @@ const ChatCard = ({
     lastMessageText=null,
     lastMessageTime=null,
     isRead=true,
-    messagesNumber=''
+    messagesNumber='',
+    onPress=() => {}
 }) => {
 
     const navigation = useNavigation()
@@ -21,7 +22,7 @@ const ChatCard = ({
 
   return (
     <TouchableNativeFeedback
-        onPress={() => navigation.push('ChatScreen')}
+        onPress={onPress}
     >
 
         {/* Card container */}
