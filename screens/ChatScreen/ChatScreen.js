@@ -1,9 +1,9 @@
 // react/react native import
-import { View, Text, ImageBackground, StyleSheet } from 'react-native'
+import { View, Text, ImageBackground, StyleSheet, TextInput, Dimensions } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 
 //package imports
-import { Bubble, Day, GiftedChat, Send } from 'react-native-gifted-chat'
+import { Bubble, Day, GiftedChat, InputToolbar, Send } from 'react-native-gifted-chat'
 
 // component imports
 import ChatHeader from '../../components/ChatComponents/ChatHeader'
@@ -72,6 +72,7 @@ const ChatScreen = ({route}) => {
           //remove avatar container
           renderAvatar={() => null}
 
+          //day indicator styling
           renderDay={(props) => (
             <Day {...props}
               containerStyle={{
@@ -88,7 +89,7 @@ const ChatScreen = ({route}) => {
             />
           )}
 
-          //message bubble container styling
+          //message bubble styling
           renderBubble={(props) => (
             <Bubble {...props}
               wrapperStyle={{
@@ -104,11 +105,35 @@ const ChatScreen = ({route}) => {
           />
           )}
 
+          //send button styling
           renderSend={(props) => (
             <Send {...props}
               textStyle={{color:'#308a5a'}}
             />
           )}
+
+          renderInputToolbar={(props) => (
+            <InputToolbar {...props}
+              containerStyle={{
+                backgroundColor:'transparent',
+                display:'flex',
+                borderTopColor:'transparent',
+                alignItems:'center',
+                height:'auto'
+              }}
+            />
+          )}
+
+          textInputProps={{
+            borderRadius:Dimensions.get('window').width*.05,
+            marginBottom:4,
+            marginHorizontal:4,
+            backgroundColor:'#f7f7f7',
+            paddingVertical:7,
+            paddingHorizontal:16,
+            elevation:2,
+            maxHeight:125,
+          }}
         />
 {/* 
       <MessageInput
