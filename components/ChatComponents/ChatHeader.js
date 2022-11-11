@@ -13,7 +13,7 @@ const ChatHeader = () => {
     const navigation = useNavigation()
 
   return (
-    <View className='flex-row bg-[#156b4d] h-[48px] px-1 items-center justify-between'>
+    <View className='flex-row bg-[#156b4d] h-[50px] px-1 items-center justify-between'>
       
         {/* Header Left */}
         <View className='flex-row items-center'>
@@ -34,11 +34,11 @@ const ChatHeader = () => {
             </View>
 
             {/* Contact Name */}
-            <Text className='text-white text-[17px] font-semibold mb-1 ml-1'>Elon Musk</Text>
+            <Text className='text-white text-[17px] font-semibold mb-[2px] ml-1'>Elon Musk</Text>
         </View>
 
         {/* Header Buttons Container */}
-        <View className='flex-row'>
+        <View className='flex-row items-center justify-center'>
             {/* Video Call icon */}
             <HeaderButton
                 icon={<Ionicons name="videocam" size={23} color="white" />}
