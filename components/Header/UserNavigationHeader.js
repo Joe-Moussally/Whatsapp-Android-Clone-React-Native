@@ -1,6 +1,6 @@
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
-import HeaderButton from './HeaderButton';
+import IconButton from '../IconButton';
 
 import { View, Text } from 'react-native';
 import React from 'react';
@@ -16,12 +16,12 @@ const UserNavigationHeader = () => {
         <View className='flex-row'>
 
           {/* Search icon */}
-          <HeaderButton
+          <IconButton
             icon={<Ionicons name="search" size={22} color="white" />}
           />
 
           {/* Header Menu icon */}          
-          <HeaderButton
+          <IconButton
             icon={<MaterialCommunityIcons name="dots-vertical" size={22} color="white"/>}
           />
           

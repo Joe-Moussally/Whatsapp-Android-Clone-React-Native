@@ -6,7 +6,7 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
 // component imports
-import HeaderButton from '../Header/HeaderButton'
+import IconButton from '../IconButton'
 
 const ChatHeader = () => {
 
@@ -40,16 +40,16 @@ const ChatHeader = () => {
         {/* Header Buttons Container */}
         <View className='flex-row items-center justify-center'>
             {/* Video Call icon */}
-            <HeaderButton
+            <IconButton
                 icon={<Ionicons name="videocam" size={23} color="white" />}
             />
 
             {/* Voice Call icon */}          
-            <HeaderButton
+            <IconButton
                 icon={<Ionicons name="md-call" size={20} color="white" />}
             />
             {/* Menu 3-Dots icon */}
-            <HeaderButton
+            <IconButton
                 icon={<MaterialCommunityIcons name="dots-vertical" size={22} color="white"/>}
             />
         </View>

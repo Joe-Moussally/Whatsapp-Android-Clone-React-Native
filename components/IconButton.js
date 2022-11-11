@@ -1,7 +1,7 @@
 import { View, TouchableNativeFeedback } from 'react-native'
 import React from 'react'
 
-const Button = ({
+const IconButton = ({
   icon,
   onPress = () => {},
 }) => {
@@ -18,4 +18,4 @@ const Button = ({
   )
 }
 
-export default Button
+export default IconButton

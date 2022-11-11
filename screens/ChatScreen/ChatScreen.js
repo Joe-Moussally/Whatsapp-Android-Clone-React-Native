@@ -20,6 +20,9 @@ const ChatScreen = () => {
         source={require('../../assets/default_background.jpg')}
       />
 
+      <View className='flex-1'>
+      </View>
+
       <MessageInput />
 
     </View>
