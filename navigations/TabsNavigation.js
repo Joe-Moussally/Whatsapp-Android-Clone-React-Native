@@ -10,7 +10,7 @@ import ChatsScreen from '../screens/ChatsScreens/ChatsScreen';
 
 const Tab = createMaterialTopTabNavigator();
 
-const UserNavigation = () => {
+const TabsNavigation = () => {
 
   return (
 
@@ -47,4 +47,4 @@ const UserNavigation = () => {
   )
 }
 
-export default UserNavigation
+export default TabsNavigation

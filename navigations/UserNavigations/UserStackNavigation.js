@@ -2,15 +2,15 @@
 import React from 'react'
 
 // navigation imports
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
 
 //screen/components imports
 import ChatScreen from '../../screens/ChatScreen/ChatScreen'
-import UserNavigation from '../UserNavigation';
 import UserNavigationHeader from '../../components/Header/UserNavigationHeader';
+import TabsNavigation from '../TabsNavigation';
 
 
-const ChatsStack = () => {
+const UserStackNavigation = () => {
 
   const Stack = createStackNavigator();
     
@@ -20,12 +20,15 @@ const ChatsStack = () => {
       screenOptions={{
         headerShown:false,
         header:() => <UserNavigationHeader />,
+        gestureEnabled:true,
+        // gestureDirection:'horizontal',
+        ...TransitionPresets.SlideFromRightIOS
       }}
     >
       {/* Main app screen (Tabs Screen) */}
       <Stack.Screen name='TabsScreen' options={{
         headerShown:true,
-      }} component={UserNavigation}/>
+      }} component={TabsNavigation}/>
 
       {/* Chat Screen */}
       <Stack.Screen name='ChatScreen' component={ChatScreen}/>
@@ -33,4 +36,4 @@ const ChatsStack = () => {
   )
 }
 
-export default ChatsStack
+export default UserStackNavigation

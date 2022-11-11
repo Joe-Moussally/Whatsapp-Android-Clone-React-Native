@@ -1,6 +1,6 @@
 // navigation imports
 import { NavigationContainer } from '@react-navigation/native';
-import UserNavigation from './navigations/UserNavigation';
+import UserStackNavigation from './navigations/UserNavigations/UserStackNavigation';
 import 'react-native-gesture-handler';
 
 // react native packages imports
@@ -13,7 +13,6 @@ import UserNavigationHeader from './components/Header/UserNavigationHeader';
 // redux imports
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-import ChatsStack from './navigations/UserNavigations/ChatsStack';
 
 
 export default function App() {
@@ -27,7 +26,7 @@ export default function App() {
         <SafeAreaView className='flex-1'>
           
           {/* Main App Navigation */}
-          <ChatsStack />
+          <UserStackNavigation />
 
         </SafeAreaView>
       </NavigationContainer>
