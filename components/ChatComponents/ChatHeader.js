@@ -13,7 +13,7 @@ const ChatHeader = () => {
     const navigation = useNavigation()
 
   return (
-    <View className='flex-row bg-[#156b4d] h-[50px] px-1 items-center justify-between'>
+    <View className='flex-row bg-[#156b4d] h-[50px] pl-[.6px] items-center justify-between'>
       
         {/* Header Left */}
         <View className='flex-row items-center'>

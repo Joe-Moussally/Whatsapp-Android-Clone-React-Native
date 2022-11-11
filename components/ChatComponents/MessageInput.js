@@ -11,7 +11,7 @@ const MessageInput = () => {
 
       {/* Message input container */}
       <View
-          className='flex-row items-center bg-[#f7f7f7] flex-1  mx-2 my-1 p-2 rounded-[25px]'
+          className='flex-row items-center bg-[#f7f7f7] flex-1  mx-1 my-1 p-2 rounded-[25px]'
           style={{elevation:2}}
       >
 
@@ -37,7 +37,7 @@ const MessageInput = () => {
       {/* Send Button */}
       <TouchableOpacity>
         <View
-          className='bg-[#1c9149] h-[45px] w-[45px] rounded-full items-center justify-center shadow-md shadow-black'
+          className='bg-[#25a868] h-[45px] w-[45px] rounded-full items-center justify-center shadow-md shadow-black'
         >
           <Ionicons name="send" size={20} color="white" />
         </View>
