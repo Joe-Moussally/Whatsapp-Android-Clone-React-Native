@@ -1,13 +1,22 @@
-import { View, Text, TextInput, TouchableOpacity, TouchableNativeFeedback } from 'react-native'
+import { View, TextInput, TouchableOpacity, TouchableNativeFeedback } from 'react-native'
 import React from 'react'
 
 // icon imports
-import { Ionicons, FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
+
+// packages imports
 import EmojiModal from 'react-native-emoji-modal';
 
-const MessageInput = () => {
+// components imports
+import SendButton from '../SendButton';
+
+const MessageInput = ({
+  setText,
+  onSend,
+  textValue
+}) => {
   return (
-    <View className='flex-row items-center px-[2px]'>
+    <View className='flex-row items-center px-[2px] -mt-2'>
 
       {/* Message input container */}
       <View
@@ -25,6 +34,8 @@ const MessageInput = () => {
               placeholder='Type a message...'
               cursorColor='#156b4d'
               multiline={true}
+              value={textValue}
+              onChangeText={(text) => setText(text)}
           />
 
           {/* <EmojiModal
@@ -35,13 +46,7 @@ const MessageInput = () => {
       </View>
 
       {/* Send Button */}
-      <TouchableOpacity>
-        <View
-          className='bg-[#25a868] h-[45px] w-[45px] rounded-full items-center justify-center shadow-md shadow-black'
-        >
-          <Ionicons name="send" size={20} color="white" />
-        </View>
-      </TouchableOpacity>
+      <SendButton onSend={onSend}/>
 
     </View>
   )

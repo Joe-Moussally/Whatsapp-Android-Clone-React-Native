@@ -35,13 +35,19 @@ export const messagesSlice = createSlice({
     updateMessagesArray: (state) => {
       
     },
+    addMessageToChat: (state,payload) => {
+      console.log(payload)
+    }
   },
 })
 
-// Action creators are generated for each case reducer function
+
 export const { updateMessagesArray } = messagesSlice.actions
 
+//selector to get all messages
 export const getAllMessages = (state) => state.messages.value
+
+//selector to get messages from a specific chat by chatId
 export const getChatById = (state,payload) => {
   console.log(payload)
   let chatIndex = state.messages.value.findIndex((chat) => (chat.chatId === payload.chatId))
