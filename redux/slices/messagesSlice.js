@@ -6,23 +6,17 @@ const initialState = {
     {
       chatId:0,
       contactName:'Joe Moussally',
-      messages:[
-        {text:'Yow!',timeSent:'10:38 PM', isRead:true,senderId:2,sent: true,received: true},
-        {text:'Heyy',timeSent:'10:39 PM', isRead:true,senderId:1,sent: true,received: true},
-        {text:'How are you?',timeSent:'10:39 PM', isRead:true,senderId:2,sent: true,received: true},
-        {text:'Good, and you?',timeSent:'10:40 PM', isRead:true,senderId:1,sent: true,received: true},
-        {text:'Doing great :p',timeSent:'10:41 PM', isRead:true,senderId:2,sent: true,received: true},
-        {text:'Good to hear :)',timeSent:'10:41 PM', isRead:false,senderId:2,sent: true,received: false}
-      ]
+      messages:[]
     },
     {
       chatId:1,
       contactName:'Elon Musk',
       messages:[
-        // {text:'Howdy!',timeSent:'6:38 PM', isRead:true,senderId:3,sent: true,received: true},
-        // {text:'Heyy',timeSent:'6:39 PM', isRead:true,senderId:1,sent: true,received: true},
-        // {text:'How are you?',timeSent:'6:39 PM', isRead:false,senderId:3,sent: true,received: true},
-        // {text:'Good?',timeSent:'6:40 PM', isRead:false,senderId:3,sent: true,received: true}
+        {_id: Math.random()*1000,text: 'Good, just having fun firing some executives',createdAt: '2022-11-12T10:47:56.104Z',user: {_id: 2,}},
+        {_id: Math.random()*1000,text: 'Doing great! you?',createdAt: '2022-11-12T10:45:56.104Z',user: {_id: 1,}},
+        {_id: Math.random()*1000,text: 'How are you?',createdAt: '2022-11-12T10:43:59.104Z',user: {_id: 2,}},
+        {_id: Math.random()*1000,text: 'Hi Elon',createdAt: '2022-11-12T10:43:56.104Z',user: {_id: 1,}},
+        {_id: Math.random()*1000,text: 'Hello Joe',createdAt: '2022-11-12T10:42:56.104Z',user: {_id: 2,}},
       ]
     }
   ],
@@ -36,20 +30,21 @@ export const messagesSlice = createSlice({
       
     },
     addMessageToChat: (state,payload) => {
-      console.log(payload)
+      console.log(payload.payload.message)
+      let chatIndex = state.value.findIndex(chat => chat.chatId === payload.payload.chatId)
+      state.value[chatIndex].messages.unshift(payload.payload.message)
     }
   },
 })
 
 
-export const { updateMessagesArray } = messagesSlice.actions
+export const { updateMessagesArray, addMessageToChat } = messagesSlice.actions
 
 //selector to get all messages
 export const getAllMessages = (state) => state.messages.value
 
 //selector to get messages from a specific chat by chatId
 export const getChatById = (state,payload) => {
-  console.log(payload)
   let chatIndex = state.messages.value.findIndex((chat) => (chat.chatId === payload.chatId))
   return state.messages.value[chatIndex]
 }

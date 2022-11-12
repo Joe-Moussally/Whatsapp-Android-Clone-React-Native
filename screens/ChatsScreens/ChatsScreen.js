@@ -60,20 +60,20 @@ const ChatsScreen = () => {
               lastMessageTime={lastMessageTime}
               isRead={isRead}
               messagesNumber={unreadCount}
-              onPress={() => {navigation.navigate('ChatScreen',{contactName:chat.contactName})}}
+              onPress={() => {navigation.navigate('ChatScreen',{contactName:chat.contactName,chatId:chat.chatId})}}
             />
           )
 
         })
       }
-
+{/* 
       <ChatCard
         key={1}
         contactName='Joe Moussally'
         lastMessageText='Good'
         lastMessageTime='10:22 PM'
         onPress={() => {navigation.navigate('ChatScreen',{contactName:'Joe Moussally',chatId:1})}}
-      />
+      /> */}
 
     </View>
   )

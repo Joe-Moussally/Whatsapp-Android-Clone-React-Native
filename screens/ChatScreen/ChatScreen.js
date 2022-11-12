@@ -1,5 +1,5 @@
 // react/react native import
-import { View, Text, ImageBackground, StyleSheet, TextInput, Dimensions } from 'react-native'
+import { View, Text, ImageBackground, Dimensions } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 
 //package imports
@@ -7,15 +7,17 @@ import { Bubble, Day, GiftedChat, InputToolbar, Send } from 'react-native-gifted
 
 // component imports
 import ChatHeader from '../../components/ChatComponents/ChatHeader'
-import MessageInput from '../../components/ChatComponents/MessageInput'
+import SendButton from '../../components/SendButton'
 
 // redux imports
-import { useSelector } from 'react-redux'
-import { getAllMessages, getChatById } from '../../redux/slices/messagesSlice'
-import SendButton from '../../components/SendButton'
+import { useDispatch, useSelector } from 'react-redux'
+import { addMessageToChat, getAllMessages, getChatById } from '../../redux/slices/messagesSlice'
+
 
 
 const ChatScreen = ({route}) => {
+
+  const dispatch = useDispatch()
 
   // parameters passed from ChatsScreen
   const routeParams = route.params
@@ -24,29 +26,23 @@ const ChatScreen = ({route}) => {
   const [text,setText] = useState('')
 
   //get chat messages from store
-  const [messages, setMessages] = useState([]);
-  // const messages = useSelector((state) => getChatById(state,{chatId:route.params.chatId}))
+  const messages = useSelector((state) => getChatById(state,{chatId:route.params.chatId}).messages)
 
   const userId=1
-  const contactId=2
 
   //function that is called when the user presses 'send' button
   const onSend = useCallback((messages=[]) => {
-    setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    let messageTime = new Date()
+    let messageObject = {
+      _id: Math.random()*1000,
+      text: 'AAA',
+      createdAt: messageTime.toString(),
+      user: {_id: userId,}
+    }
+    // setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
+    dispatch(addMessageToChat({chatId:routeParams.chatId,message:messageObject}))
   },[text])
 
-  useEffect(() => {
-    setMessages([
-      {
-        _id: Math.random(),
-        text: 'Hello Joe',
-        createdAt: new Date(),
-        user: {
-          _id: 2,
-        },
-      },
-    ])
-  }, [])
 
   return (
     <View className='flex-1'>
@@ -127,7 +123,7 @@ const ChatScreen = ({route}) => {
           textInputProps={{
             borderRadius:Dimensions.get('window').width*.05,
             marginBottom:4,
-            marginHorizontal:4,
+            marginRight:11,
             backgroundColor:'#f7f7f7',
             paddingVertical:7,
             paddingHorizontal:16,
@@ -147,10 +143,3 @@ const ChatScreen = ({route}) => {
 }
 
 export default ChatScreen
-
-const styles = StyleSheet.create({
-  textInput:{
-    borderWidth:2,
-    borderColor:'red'
-  }
-})
