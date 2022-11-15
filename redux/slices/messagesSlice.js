@@ -30,7 +30,6 @@ export const messagesSlice = createSlice({
       
     },
     addMessageToChat: (state,payload) => {
-      console.log(payload.payload.message)
       let chatIndex = state.value.findIndex(chat => chat.chatId === payload.payload.chatId)
       state.value[chatIndex].messages.unshift(payload.payload.message)
     }

@@ -35,7 +35,7 @@ const ChatScreen = ({route}) => {
     let messageTime = new Date()
     let messageObject = {
       _id: Math.random()*1000,
-      text: 'AAA',
+      text: messages[0].text,
       createdAt: messageTime.toString(),
       user: {_id: userId,}
     }
