@@ -37,9 +37,9 @@ const ChatsScreen = () => {
           //if there are any messages between the 2 users
           if(chat.messages.length) {
             //get the last text sent
-            lastMessageText = chat.messages[chat.messages.length-1].text
+            lastMessageText = chat.messages[0].text
             //get time of the last text sent
-            lastMessageTime = chat.messages[chat.messages.length-1].timeSent
+            lastMessageTime = chat.messages[0].timeSent
   
             //calculating number of unread messages
             unreadCount = 0
@@ -58,7 +58,7 @@ const ChatsScreen = () => {
               contactName={chat.contactName}
               lastMessageText={lastMessageText}
               lastMessageTime={lastMessageTime}
-              isRead={isRead}
+              // isRead={isRead}
               messagesNumber={unreadCount}
               onPress={() => {navigation.navigate('ChatScreen',{contactName:chat.contactName,chatId:chat.chatId})}}
             />

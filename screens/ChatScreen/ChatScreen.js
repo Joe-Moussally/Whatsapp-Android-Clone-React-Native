@@ -39,6 +39,7 @@ const ChatScreen = ({route}) => {
       createdAt: messageTime.toString(),
       user: {_id: userId,}
     }
+    
     // setMessages(previousMessages => GiftedChat.append(previousMessages, messages))
     dispatch(addMessageToChat({chatId:routeParams.chatId,message:messageObject}))
   },[text])
