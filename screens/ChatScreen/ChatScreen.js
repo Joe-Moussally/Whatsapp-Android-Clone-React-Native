@@ -1,5 +1,5 @@
 // react/react native import
-import { View, Text, ImageBackground, Dimensions } from 'react-native'
+import { View, Text, ImageBackground, Dimensions, Platform } from 'react-native'
 import React, { useCallback, useEffect, useState } from 'react'
 
 //package imports

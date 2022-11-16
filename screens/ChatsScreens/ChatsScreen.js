@@ -20,6 +20,16 @@ const ChatsScreen = () => {
   //get the messages from store
   const chatsArray = useSelector(getAllMessages)
 
+  //function to check if a date is lest that 24 hrs ago -> return boolean
+  function isLessThan24HourAgo(date) {
+    // 👇️                    hour  min  sec  milliseconds
+    const twentyFourHrInMs = 24 * 60 * 60 * 1000;
+  
+    const twentyFourHoursAgo = Date.now() - twentyFourHrInMs;
+  
+    return date > twentyFourHoursAgo;
+  }
+
 
   return (
     <View
@@ -30,7 +40,7 @@ const ChatsScreen = () => {
 
           //inital values 
           let lastMessageText = null
-          let lastMessageTime = null
+          let lastMessageDate = null
           let isRead = true
           let unreadCount = 0
 
@@ -39,7 +49,13 @@ const ChatsScreen = () => {
             //get the last text sent
             lastMessageText = chat.messages[0].text
             //get time of the last text sent
-            lastMessageTime = chat.messages[0].timeSent
+            lastMessageDate = new Date(chat.messages[0].createdAt)
+
+            if(isLessThan24HourAgo(lastMessageDate)) {
+              lastMessageDate = lastMessageDate.toLocaleTimeString().slice(0,5) // ex: 10:45
+            } else {
+              lastMessageDate = lastMessageDate.toLocaleDateString() // ex: 15/12/2022
+            }
   
             //calculating number of unread messages
             unreadCount = 0
@@ -57,7 +73,7 @@ const ChatsScreen = () => {
               key={chat.contactName}
               contactName={chat.contactName}
               lastMessageText={lastMessageText}
-              lastMessageTime={lastMessageTime}
+              lastMessageTime={lastMessageDate}
               // isRead={isRead}
               messagesNumber={unreadCount}
               onPress={() => {navigation.navigate('ChatScreen',{contactName:chat.contactName,chatId:chat.chatId})}}
